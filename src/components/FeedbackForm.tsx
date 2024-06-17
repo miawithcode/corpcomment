@@ -6,7 +6,9 @@ const FeedbackForm = () => {
   const [text, setText] = useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(event.target.value);
+    const newText = event.target.value;
+    if (newText.length > MAX_TEXT_LENGTH) return;
+    setText(newText);
   };
 
   return (
@@ -16,7 +18,6 @@ const FeedbackForm = () => {
         onChange={handleChange}
         placeholder="Any feedback? Don't forget to #hashtag the company."
         spellCheck={false}
-        maxLength={MAX_TEXT_LENGTH}
       />
       <div>
         <CharCount count={MAX_TEXT_LENGTH - text.length} />
