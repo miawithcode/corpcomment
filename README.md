@@ -8,3 +8,4 @@
 - **Variant**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
+- **Iconography**: [Radix Icons](https://www.radix-ui.com/icons)
