@@ -6,7 +6,7 @@ import Header from "./components/Header";
 
 const App = () => {
   return (
-    <>
+    <div className="flex min-h-svh w-full flex-col items-center justify-center">
       <Header />
       <main>
         <FeedbackForm />
@@ -14,7 +14,7 @@ const App = () => {
         <HashtagList />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

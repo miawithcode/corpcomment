@@ -1,3 +1,5 @@
+import TextCounter from "./TextCounter";
+
 const FeedbackForm = () => {
   return (
     <form>
@@ -6,7 +8,7 @@ const FeedbackForm = () => {
         spellCheck={false}
       />
       <div>
-        <p>150</p>
+        <TextCounter />
         <button type="submit">Publish</button>
       </div>
     </form>
