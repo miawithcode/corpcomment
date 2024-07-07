@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import FeedbackForm from "./components/FeedbackForm";
-import FeedbackList from "./components/FeedbackList";
-import Footer from "./components/Footer";
-import HashtagList from "./components/HashtagList";
-import Header from "./components/Header";
+import FeedbackForm from "./components/feedback/FeedbackForm";
+import FeedbackList from "./components/feedback/FeedbackList";
+import Footer from "./components/layout/Footer";
+import HashtagList from "./components/hashtag/HashtagList";
+import Header from "./components/layout/Header";
 import { type TFeedback } from "./lib/types";
 
 const App = () => {

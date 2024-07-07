@@ -1,7 +1,7 @@
 import Feedback from "./Feedback";
-import Loading from "./Loading";
-import ErrorMessage from "./ErrorMessage";
-import { type TFeedback } from "../lib/types";
+import Loading from "../Loading";
+import ErrorMessage from "../ErrorMessage";
+import { type TFeedback } from "../../lib/types";
 
 type FeedbackListProps = {
   feedbacks: TFeedback[];

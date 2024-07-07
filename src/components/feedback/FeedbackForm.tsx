@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CharCount from "./CharCount";
-import { MAX_TEXT_LENGTH } from "../lib/constants";
+import CharCount from "../CharCount";
+import { MAX_TEXT_LENGTH } from "../../lib/constants";
 
 type FeedbackFormProps = {
   handleAddFeedback: (text: string) => void;
