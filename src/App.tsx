@@ -11,7 +11,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleAddFeedback = (text: string) => {
+  const handleAddFeedback = async (text: string) => {
     const company = text
       .split(" ")
       .find((word) => word.includes("#"))!
@@ -27,6 +27,18 @@ const App = () => {
     };
 
     setFeedbacks([...feedbacks, newItem]);
+
+    await fetch(
+      "https://bytegrad.com/course-assets/projects/corpcomment/api/feedbacks",
+      {
+        method: "POST",
+        body: JSON.stringify(newItem),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      },
+    );
   };
 
   const fetchFeedback = async () => {
