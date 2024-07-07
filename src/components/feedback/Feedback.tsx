@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TriangleUpIcon } from "@radix-ui/react-icons";
 import { type TFeedback } from "../../lib/types";
 
@@ -6,6 +7,13 @@ type FeedbackProps = {
 };
 
 const Feedback = ({ feedback }: FeedbackProps) => {
+  const [upvoteCount, setUpvoteCount] = useState(feedback.upvoteCount);
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    setUpvoteCount((prev) => prev + 1);
+    e.currentTarget.disabled = true;
+  };
+
   return (
     <li>
       {/* Company Logo */}
@@ -24,9 +32,9 @@ const Feedback = ({ feedback }: FeedbackProps) => {
       </div>
 
       {/* Upvote Button */}
-      <button>
+      <button onClick={handleClick}>
         <TriangleUpIcon />
-        <span>{feedback.upvoteCount}</span>
+        <span>{upvoteCount}</span>
       </button>
     </li>
   );
