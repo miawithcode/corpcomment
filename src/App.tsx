@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import FeedbackForm from "./components/feedback/FeedbackForm";
 import FeedbackList from "./components/feedback/FeedbackList";
 import Footer from "./components/layout/Footer";
@@ -12,15 +12,23 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [selectedHashtag, setSelectedHashtag] = useState("");
 
-  const filteredFeedbacks = selectedHashtag
-    ? feedbacks.filter((feedback) => feedback.company === selectedHashtag)
-    : feedbacks;
+  const filteredFeedbacks = useMemo(
+    () =>
+      selectedHashtag
+        ? feedbacks.filter((feedback) => feedback.company === selectedHashtag)
+        : feedbacks,
+    [feedbacks, selectedHashtag],
+  );
 
-  const hashtagList = feedbacks
-    .map((item) => item.company)
-    .filter((hashtag, index, array) => {
-      return array.indexOf(hashtag) === index;
-    });
+  const hashtagList = useMemo(
+    () =>
+      feedbacks
+        .map((item) => item.company)
+        .filter((hashtag, index, array) => {
+          return array.indexOf(hashtag) === index;
+        }),
+    [feedbacks],
+  );
 
   const handleAddFeedback = async (text: string) => {
     const company = text
