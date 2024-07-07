@@ -1,11 +1,15 @@
 import Hashtag from "./Hashtag";
 
-const HashtagList = () => {
+type HashtagListProps = {
+  hashtagList: string[];
+};
+
+const HashtagList = ({ hashtagList }: HashtagListProps) => {
   return (
     <ul>
-      <Hashtag />
-      <Hashtag />
-      <Hashtag />
+      {hashtagList.map((hashtag) => (
+        <Hashtag key={hashtag} hashtag={hashtag} />
+      ))}
     </ul>
   );
 };

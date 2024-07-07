@@ -11,6 +11,12 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const hashtagList = feedbacks
+    .map((item) => item.company)
+    .filter((hashtag, index, array) => {
+      return array.indexOf(hashtag) === index;
+    });
+
   const handleAddFeedback = async (text: string) => {
     const company = text
       .split(" ")
@@ -76,7 +82,7 @@ const App = () => {
           isLoading={isLoading}
           errorMessage={errorMessage}
         />
-        <HashtagList />
+        <HashtagList hashtagList={hashtagList} />
       </main>
       <Footer />
     </div>

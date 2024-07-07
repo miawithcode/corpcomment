@@ -1,7 +1,11 @@
-const Hashtag = () => {
+type HashtagProps = {
+  hashtag: string;
+};
+
+const Hashtag = ({ hashtag }: HashtagProps) => {
   return (
     <li>
-      <button>#Starbucks</button>
+      <button>#{hashtag}</button>
     </li>
   );
 };
