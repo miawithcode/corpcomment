@@ -10,6 +10,11 @@ const App = () => {
   const [feedbacks, setFeedbacks] = useState<TFeedback[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [selectedHashtag, setSelectedHashtag] = useState("");
+
+  const filteredFeedbacks = selectedHashtag
+    ? feedbacks.filter((feedback) => feedback.company === selectedHashtag)
+    : feedbacks;
 
   const hashtagList = feedbacks
     .map((item) => item.company)
@@ -68,6 +73,10 @@ const App = () => {
     setIsLoading(false);
   };
 
+  const handleSelectHashtag = (hashtag: string) => {
+    setSelectedHashtag(hashtag);
+  };
+
   useEffect(() => {
     fetchFeedback();
   }, []);
@@ -78,11 +87,14 @@ const App = () => {
       <main>
         <FeedbackForm handleAddFeedback={handleAddFeedback} />
         <FeedbackList
-          feedbacks={feedbacks}
+          feedbacks={filteredFeedbacks}
           isLoading={isLoading}
           errorMessage={errorMessage}
         />
-        <HashtagList hashtagList={hashtagList} />
+        <HashtagList
+          hashtagList={hashtagList}
+          handleSelectHashtag={handleSelectHashtag}
+        />
       </main>
       <Footer />
     </div>

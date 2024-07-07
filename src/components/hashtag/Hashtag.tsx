@@ -1,11 +1,12 @@
 type HashtagProps = {
   hashtag: string;
+  handleSelectHashtag: (hashtag: string) => void;
 };
 
-const Hashtag = ({ hashtag }: HashtagProps) => {
+const Hashtag = ({ hashtag, handleSelectHashtag }: HashtagProps) => {
   return (
     <li>
-      <button>#{hashtag}</button>
+      <button onClick={() => handleSelectHashtag(hashtag)}>#{hashtag}</button>
     </li>
   );
 };
