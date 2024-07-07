@@ -1,6 +1,19 @@
 import { TriangleUpIcon } from "@radix-ui/react-icons";
 
-const Feedback = () => {
+type Feedback = {
+  id: number;
+  company: string;
+  badgeLetter: string;
+  daysAgo: number;
+  text: string;
+  upvoteCount: number;
+};
+
+type FeedbackProps = {
+  feedback: Feedback;
+};
+
+const Feedback = ({ feedback }: FeedbackProps) => {
   return (
     <li>
       {/* Company Logo */}
@@ -11,19 +24,16 @@ const Feedback = () => {
       {/* Feedback Content */}
       <div>
         <div>
-          <p>Starbucks</p>
-          <p>· 1d</p>
+          <p>{feedback.company}</p>
+          <p>· {feedback.daysAgo} days ago</p>
         </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Necessitatibus qui laborum exercitationem consequatur non. Dolorum?
-        </p>
+        <p>{feedback.text}</p>
       </div>
 
-      {/* Vote Button */}
+      {/* Upvote Button */}
       <button>
         <TriangleUpIcon />
-        <span>112</span>
+        <span>{feedback.upvoteCount}</span>
       </button>
     </li>
   );
