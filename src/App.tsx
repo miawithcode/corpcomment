@@ -60,6 +60,10 @@ const App = () => {
     );
   };
 
+  const handleSelectHashtag = (hashtag: string) => {
+    setSelectedHashtag(hashtag);
+  };
+
   const fetchFeedback = async () => {
     setIsLoading(true);
 
@@ -79,10 +83,6 @@ const App = () => {
     }
 
     setIsLoading(false);
-  };
-
-  const handleSelectHashtag = (hashtag: string) => {
-    setSelectedHashtag(hashtag);
   };
 
   useEffect(() => {
