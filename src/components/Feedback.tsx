@@ -17,7 +17,8 @@ const Feedback = ({ feedback }: FeedbackProps) => {
       <div>
         <div>
           <p>{feedback.company}</p>
-          <p>· {feedback.daysAgo} days ago</p>
+          {/* <p>· {feedback.daysAgo} days ago</p> */}
+          <p>{feedback.daysAgo === 0 ? "NEW" : `${feedback.daysAgo}d`}</p>
         </div>
         <p>{feedback.text}</p>
       </div>
