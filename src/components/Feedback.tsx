@@ -1,16 +1,8 @@
 import { TriangleUpIcon } from "@radix-ui/react-icons";
-
-type Feedback = {
-  id: number;
-  company: string;
-  badgeLetter: string;
-  daysAgo: number;
-  text: string;
-  upvoteCount: number;
-};
+import { type TFeedback } from "../lib/types";
 
 type FeedbackProps = {
-  feedback: Feedback;
+  feedback: TFeedback;
 };
 
 const Feedback = ({ feedback }: FeedbackProps) => {

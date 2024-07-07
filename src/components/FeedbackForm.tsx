@@ -2,7 +2,11 @@ import { useState } from "react";
 import CharCount from "./CharCount";
 import { MAX_TEXT_LENGTH } from "../lib/constants";
 
-const FeedbackForm = () => {
+type FeedbackFormProps = {
+  handleAddFeedback: (text: string) => void;
+};
+
+const FeedbackForm = ({ handleAddFeedback }: FeedbackFormProps) => {
   const [text, setText] = useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -11,8 +15,14 @@ const FeedbackForm = () => {
     setText(newText);
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleAddFeedback(text);
+    setText("");
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <textarea
         value={text}
         onChange={handleChange}
