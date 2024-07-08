@@ -1,6 +1,12 @@
 # CorpComment
 
+> Simple app of give feedbacks to big company using React and TypeScript, all the feedback will be removed after 30 min.
+
 ![](./public/Screenshot.png)
+
+<div align="center">
+  <a href="corpcomment-mia.vercel.app/" target="_blank">Demo</a>
+</div>
 
 # Tech Stack
 
