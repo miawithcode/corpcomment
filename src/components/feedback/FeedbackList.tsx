@@ -1,10 +1,14 @@
 import Feedback from "./Feedback";
 import Loading from "../Loading";
 import ErrorMessage from "../ErrorMessage";
-import { useFeedbacksContext } from "../../hooks/useFeedbacksContext";
+import { useFeedbacksStore } from "../../stores/feedbacksStore";
 
 const FeedbackList = () => {
-  const { isLoading, errorMessage, filteredFeedbacks } = useFeedbacksContext();
+  const isLoading = useFeedbacksStore((state) => state.isLoading);
+  const errorMessage = useFeedbacksStore((state) => state.errorMessage);
+  const filteredFeedbacks = useFeedbacksStore((state) =>
+    state.getFilteredFeedbacks(),
+  );
 
   return (
     <ol>

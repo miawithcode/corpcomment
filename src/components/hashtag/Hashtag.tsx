@@ -1,15 +1,15 @@
-import { useFeedbacksContext } from "../../hooks/useFeedbacksContext";
+import { useFeedbacksStore } from "../../stores/feedbacksStore";
 
 type HashtagProps = {
   hashtag: string;
 };
 
 const Hashtag = ({ hashtag }: HashtagProps) => {
-  const { handleSelectHashtag } = useFeedbacksContext();
+  const selectHashtag = useFeedbacksStore((state) => state.selectHashtag);
 
   return (
     <li>
-      <button onClick={() => handleSelectHashtag(hashtag)}>#{hashtag}</button>
+      <button onClick={() => selectHashtag(hashtag)}>#{hashtag}</button>
     </li>
   );
 };

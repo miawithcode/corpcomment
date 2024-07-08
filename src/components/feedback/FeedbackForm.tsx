@@ -1,10 +1,10 @@
 import { useState } from "react";
 import CharCount from "../CharCount";
 import { MAX_TEXT_LENGTH } from "../../lib/constants";
-import { useFeedbacksContext } from "../../hooks/useFeedbacksContext";
+import { useFeedbacksStore } from "../../stores/feedbacksStore";
 
 const FeedbackForm = () => {
-  const { handleAddFeedback } = useFeedbacksContext();
+  const addFeedback = useFeedbacksStore((state) => state.addFeedback);
 
   const [text, setText] = useState("");
   const [showValidIndicator, setShowValidIndicator] = useState(false);
@@ -30,7 +30,7 @@ const FeedbackForm = () => {
       return;
     }
 
-    handleAddFeedback(text);
+    addFeedback(text);
     setText("");
   };
 
