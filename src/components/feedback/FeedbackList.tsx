@@ -1,26 +1,18 @@
 import Feedback from "./Feedback";
 import Loading from "../Loading";
 import ErrorMessage from "../ErrorMessage";
-import { type TFeedback } from "../../lib/types";
+import { useFeedbackContext } from "../../hooks/useFeedbackContext";
 
-type FeedbackListProps = {
-  feedbacks: TFeedback[];
-  isLoading: boolean;
-  errorMessage: string;
-};
+const FeedbackList = () => {
+  const { isLoading, errorMessage, filteredFeedbacks } = useFeedbackContext();
 
-const FeedbackList = ({
-  feedbacks,
-  isLoading,
-  errorMessage,
-}: FeedbackListProps) => {
   return (
     <ol>
       {isLoading && <Loading />}
 
       {errorMessage && <ErrorMessage message={errorMessage} />}
 
-      {feedbacks.map((feedback) => (
+      {filteredFeedbacks.map((feedback) => (
         <Feedback key={feedback.id} feedback={feedback} />
       ))}
     </ol>

@@ -1,9 +1,12 @@
+import { useFeedbackContext } from "../../hooks/useFeedbackContext";
+
 type HashtagProps = {
   hashtag: string;
-  handleSelectHashtag: (hashtag: string) => void;
 };
 
-const Hashtag = ({ hashtag, handleSelectHashtag }: HashtagProps) => {
+const Hashtag = ({ hashtag }: HashtagProps) => {
+  const { handleSelectHashtag } = useFeedbackContext();
+
   return (
     <li>
       <button onClick={() => handleSelectHashtag(hashtag)}>#{hashtag}</button>
