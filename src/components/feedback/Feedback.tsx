@@ -15,7 +15,7 @@ const Feedback = ({ feedback }: FeedbackProps) => {
   };
 
   return (
-    <li className="p flex items-start gap-6 border border-t-0 p-6">
+    <li className="flex items-start gap-6 border border-t-0 p-6">
       {/* Company Logo */}
       <div>
         <p className="grid h-14 w-14 place-content-center rounded-full border border-black bg-[#D1E3FA] text-2xl font-bold">
