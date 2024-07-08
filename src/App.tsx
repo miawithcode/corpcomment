@@ -7,14 +7,18 @@ import FeedbacksContextProvider from "./context/FeedbacksContextProvider";
 
 const App = () => {
   return (
-    <div className="flex min-h-svh w-full flex-col items-center justify-center">
+    <div className="mx-auto flex min-h-svh w-full max-w-screen-sm flex-col items-center justify-center gap-6 py-24">
       <Header />
 
       <FeedbacksContextProvider>
-        <main>
-          <FeedbackForm />
-          <FeedbackList />
-          <HashtagList />
+        <main className="relative flex gap-8">
+          <div className="flex-1">
+            <FeedbackForm />
+            <FeedbackList />
+          </div>
+          <div>
+            <HashtagList />
+          </div>
         </main>
       </FeedbacksContextProvider>
 

@@ -3,7 +3,7 @@ type CharCountProps = {
 };
 
 const CharCount = ({ count }: CharCountProps) => {
-  return <p>{count}</p>;
+  return <p className="text-sm text-gray-500">{count}</p>;
 };
 
 export default CharCount;

@@ -5,7 +5,7 @@ const HashtagList = () => {
   const { hashtagList } = useFeedbacksContext();
 
   return (
-    <ul>
+    <ul className="sticky top-0 flex flex-col gap-2">
       {hashtagList.map((hashtag) => (
         <Hashtag key={hashtag} hashtag={hashtag} />
       ))}

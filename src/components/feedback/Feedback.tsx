@@ -15,27 +15,37 @@ const Feedback = ({ feedback }: FeedbackProps) => {
   };
 
   return (
-    <li>
+    <li className="p flex items-start gap-6 border border-t-0 p-6">
       {/* Company Logo */}
       <div>
-        <img src="" alt="" />
+        <p className="grid h-14 w-14 place-content-center rounded-full border border-black bg-[#D1E3FA] text-2xl font-bold">
+          {feedback.badgeLetter}
+        </p>
       </div>
 
       {/* Feedback Content */}
-      <div>
-        <div>
-          <p>{feedback.company}</p>
+      <div className="flex flex-1 flex-col gap-1">
+        <div className="flex gap-1">
+          <p className="font-semibold">{feedback.company}</p>
           {/* <p>· {feedback.daysAgo} days ago</p> */}
-          <p>{feedback.daysAgo === 0 ? "NEW" : `${feedback.daysAgo}d`}</p>
+          <p>·</p>
+          <p className="text-gray-400">
+            {feedback.daysAgo === 0 ? "NEW" : `${feedback.daysAgo}d`}
+          </p>
         </div>
-        <p>{feedback.text}</p>
+        <p className="leading-tight">{feedback.text}</p>
       </div>
 
       {/* Upvote Button */}
-      <button onClick={handleClick}>
-        <TriangleUpIcon />
-        <span>{upvoteCount}</span>
-      </button>
+      <div>
+        <button
+          onClick={handleClick}
+          className="flex flex-col items-center disabled:text-gray-400"
+        >
+          <TriangleUpIcon className="h-6 w-6" />
+          <span className="text-sm">{upvoteCount}</span>
+        </button>
+      </div>
     </li>
   );
 };

@@ -35,17 +35,25 @@ const FeedbackForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className={`w-full rounded-t-xl border p-4 ${showValidIndicator && "border-green-700"} ${showInValidIndicator && "border-red-700"}`}
+    >
       <textarea
-        className={`border ${showValidIndicator && "border-green-700"} ${showInValidIndicator && "border-red-700"}`}
+        className="min-h-24 w-full min-w-[512px] resize-none focus:outline-none"
         value={text}
         onChange={handleChange}
         placeholder="Any feedback? Don't forget to #hashtag the company."
         spellCheck={false}
       />
-      <div className="border-red-400">
+      <div className="flex items-center justify-between">
         <CharCount count={MAX_TEXT_LENGTH - text.length} />
-        <button type="submit">Publish</button>
+        <button
+          type="submit"
+          className="rounded-[4px] border border-black bg-[#D1E3FA] px-4 py-2 text-sm font-medium"
+        >
+          Publish
+        </button>
       </div>
     </form>
   );
