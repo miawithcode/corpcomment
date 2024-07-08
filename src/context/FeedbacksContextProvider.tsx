@@ -1,5 +1,6 @@
-import React, { createContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useMemo, useState } from "react";
 import { type TFeedback } from "../lib/types";
+import { useFeedbacks } from "../hooks/useFeedbacks";
 
 type FeedbacksContextProviderProps = {
   children: React.ReactNode;
@@ -19,9 +20,7 @@ export const FeedbackContext = createContext<TFeedbackContext | null>(null);
 const FeedbacksContextProvider = ({
   children,
 }: FeedbacksContextProviderProps) => {
-  const [feedbacks, setFeedbacks] = useState<TFeedback[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const { isLoading, errorMessage, feedbacks, setFeedbacks } = useFeedbacks();
   const [selectedHashtag, setSelectedHashtag] = useState("");
 
   const filteredFeedbacks = useMemo(
@@ -75,31 +74,6 @@ const FeedbacksContextProvider = ({
       },
     );
   };
-
-  const fetchFeedback = async () => {
-    setIsLoading(true);
-
-    try {
-      const response = await fetch(
-        "https://bytegrad.com/course-assets/projects/corpcomment/api/feedbacks",
-      );
-
-      if (!response.ok) {
-        throw new Error();
-      }
-
-      const data = await response.json();
-      setFeedbacks(data.feedbacks);
-    } catch (error) {
-      setErrorMessage("Something went wrong. Please try again later");
-    }
-
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    fetchFeedback();
-  }, []);
 
   return (
     <FeedbackContext.Provider
