@@ -1,11 +1,11 @@
-import { useFeedbackContext } from "../../hooks/useFeedbackContext";
+import { useFeedbacksContext } from "../../hooks/useFeedbacksContext";
 
 type HashtagProps = {
   hashtag: string;
 };
 
 const Hashtag = ({ hashtag }: HashtagProps) => {
-  const { handleSelectHashtag } = useFeedbackContext();
+  const { handleSelectHashtag } = useFeedbacksContext();
 
   return (
     <li>

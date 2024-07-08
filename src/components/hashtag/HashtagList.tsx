@@ -1,8 +1,8 @@
-import { useFeedbackContext } from "../../hooks/useFeedbackContext";
+import { useFeedbacksContext } from "../../hooks/useFeedbacksContext";
 import Hashtag from "./Hashtag";
 
 const HashtagList = () => {
-  const { hashtagList } = useFeedbackContext();
+  const { hashtagList } = useFeedbacksContext();
 
   return (
     <ul>

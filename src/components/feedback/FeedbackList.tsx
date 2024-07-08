@@ -1,10 +1,10 @@
 import Feedback from "./Feedback";
 import Loading from "../Loading";
 import ErrorMessage from "../ErrorMessage";
-import { useFeedbackContext } from "../../hooks/useFeedbackContext";
+import { useFeedbacksContext } from "../../hooks/useFeedbacksContext";
 
 const FeedbackList = () => {
-  const { isLoading, errorMessage, filteredFeedbacks } = useFeedbackContext();
+  const { isLoading, errorMessage, filteredFeedbacks } = useFeedbacksContext();
 
   return (
     <ol>
