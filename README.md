@@ -8,10 +8,10 @@
   <a href="corpcomment-mia.vercel.app/" target="_blank">Demo</a>
 </div>
 
-# Tech Stack
+## Tech Stack
 
 - **Framework**: [React](https://react.dev/)
-- **Variant**: [TypeScript](https://www.typescriptlang.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
 - **Iconography**: [Radix Icons](https://www.radix-ui.com/icons)
